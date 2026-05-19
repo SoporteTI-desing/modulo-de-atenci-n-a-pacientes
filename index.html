@@ -22,7 +22,10 @@
       <div class="content">
         <div class="header">
           <span class="brand">Nomad Genetics</span>
-          <span class="badge" aria-label="Disponibilidad">Disponible</span>
+          <span class="badge" aria-label="Disponibilidad">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#2ea44f"/></svg>
+            Disponible
+          </span>
         </div>
         <h1>Melina Martínez</h1>
         <div class="role">Asesoría en procesos administrativos</div>
@@ -44,5 +47,40 @@
     </section>
     <p class="footer">© Nomad Genetics · Tarjeta digital</p>
   </main>
+  <script>
+    (function () {
+      const video = document.querySelector('video.portrait');
+      if (!video) return;
+
+      function onFullscreenChange() {
+        const isFs =
+          document.fullscreenElement === video ||
+          document.webkitFullscreenElement === video ||
+          document.mozFullScreenElement === video;
+
+        if (isFs) {
+          // Pantalla completa: mostrar el video completo sin recorte
+          video.style.objectFit      = 'contain';
+          video.style.aspectRatio    = 'unset';
+          video.style.width          = '100vw';
+          video.style.height         = '100vh';
+          video.style.maxHeight      = '100vh';
+          video.style.borderRadius   = '0';
+        } else {
+          // Restaurar estilos normales
+          video.style.objectFit      = '';
+          video.style.aspectRatio    = '';
+          video.style.width          = '';
+          video.style.height         = '';
+          video.style.maxHeight      = '';
+          video.style.borderRadius   = '';
+        }
+      }
+
+      document.addEventListener('fullscreenchange',       onFullscreenChange);
+      document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+      document.addEventListener('mozfullscreenchange',    onFullscreenChange);
+    })();
+  </script>
 </body>
 </html>
