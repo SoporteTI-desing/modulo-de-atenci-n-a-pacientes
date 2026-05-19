@@ -32,7 +32,8 @@ body{
   box-shadow: 0 12px 40px rgba(0,0,0,.35);
   backdrop-filter: blur(4px);
 }
-img.portrait{
+img.portrait,
+video.portrait{
   width:100%;
   height:auto;
   border-radius:20px;
